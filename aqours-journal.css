@@ -1,0 +1,2056 @@
+/**
+ * Aqours Seaside Memory Voyage
+ * Modern MyAnimeList anime-list theme for jmdspeedy
+ * Version: 0.2.0
+ * Design contract: design.md
+ * Assets: https://jmdspeedy.github.io/MyAnimeListCustom/assets/
+ */
+
+/* --------------------------------------------------------------------------
+   01. Self-hosted fonts, design tokens, and asset slots
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/m-plus-rounded-1c-latin-400-v1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/m-plus-rounded-1c-latin-500-v1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/m-plus-rounded-1c-latin-700-v1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/m-plus-rounded-1c-latin-800-v1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Klee One";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/klee-one-latin-400-v1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Klee One";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/fonts/klee-one-latin-600-v1.woff2") format("woff2");
+}
+
+body.ownlist:not(.classic-ownlist).anime {
+  --asset-chika-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/chika-7th-wallpaper-v1.webp");
+  --asset-riko-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/riko-7th-wallpaper-v1.webp");
+  --asset-kanan-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/kanan-7th-wallpaper-v1.webp");
+  --asset-dia-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/dia-7th-wallpaper-v1.webp");
+  --asset-you-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/you-7th-wallpaper-v1.webp");
+  --asset-yoshiko-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/yoshiko-7th-wallpaper-v1.webp");
+  --asset-hanamaru-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/hanamaru-7th-wallpaper-v1.webp");
+  --asset-mari-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/mari-7th-wallpaper-v1.webp");
+  --asset-ruby-wallpaper: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/ruby-7th-wallpaper-v1.webp");
+
+  --asset-chika-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/chika-7th-icon-v1.webp");
+  --asset-riko-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/riko-7th-icon-v1.webp");
+  --asset-kanan-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/kanan-7th-icon-v1.webp");
+  --asset-dia-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/dia-7th-icon-v1.webp");
+  --asset-you-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/you-7th-icon-v1.webp");
+  --asset-yoshiko-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/yoshiko-7th-icon-v1.webp");
+  --asset-hanamaru-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/hanamaru-7th-icon-v1.webp");
+  --asset-mari-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/mari-7th-icon-v1.webp");
+  --asset-ruby-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/ruby-7th-icon-v1.webp");
+
+  --color-sky: #bdeaf4;
+  --color-ocean: #168fc5;
+  --color-ocean-deep: #0b5275;
+  --color-paper: #fff9e8;
+  --color-paper-deep: #f1e4bf;
+  --color-sun: #f6c84c;
+  --color-coral: #ef6a62;
+  --color-ink: #17384a;
+  --color-ink-muted: #5d707a;
+  --color-white: #ffffff;
+
+  --member-chika: #f28c28;
+  --member-riko: #e9789d;
+  --member-kanan: #36b98a;
+  --member-dia: #c83e4d;
+  --member-you: #49aee8;
+  --member-yoshiko: #7b86a2;
+  --member-hanamaru: #e9b928;
+  --member-mari: #9a6cc1;
+  --member-ruby: #e85e9c;
+
+  --status-watching: #168fc5;
+  --status-completed: #2e8b68;
+  --status-onhold: #a66f0b;
+  --status-dropped: #c94e55;
+  --status-planned: #7867b6;
+
+  --font-ui: "M PLUS Rounded 1c", "Yu Gothic UI", Meiryo, "Segoe UI", sans-serif;
+  --font-hand: "Klee One", "Yu Gothic UI", Meiryo, cursive;
+  --shadow-journal: 0 18px 45px rgba(11, 82, 117, 0.22);
+  --shadow-card: 0 5px 12px rgba(23, 56, 74, 0.18);
+  --shadow-card-lifted: 0 10px 22px rgba(23, 56, 74, 0.25);
+  --focus-ring: 0 0 0 2px var(--color-paper), 0 0 0 5px var(--color-ocean);
+  --journal-width: 1440px;
+
+  min-width: 0;
+  margin: 0;
+  background-color: var(--color-sky) !important; /* Beats MAL's inline theme background. */
+  background-image:
+    radial-gradient(circle at 12% 4%, rgba(246, 200, 76, 0.8) 0 58px, rgba(246, 200, 76, 0.2) 59px 78px, transparent 79px),
+    repeating-radial-gradient(ellipse at 50% 112%, transparent 0 54px, rgba(255, 255, 255, 0.48) 55px 58px, transparent 59px 86px),
+    linear-gradient(180deg, #d8f5fa 0, var(--color-sky) 46%, #83cfdf 100%) !important;
+  background-attachment: fixed;
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+body.ownlist:not(.classic-ownlist).anime,
+body.ownlist:not(.classic-ownlist).anime input,
+body.ownlist:not(.classic-ownlist).anime select,
+body.ownlist:not(.classic-ownlist).anime textarea,
+body.ownlist:not(.classic-ownlist).anime button {
+  box-sizing: border-box;
+  font-family: var(--font-ui);
+}
+
+body.ownlist:not(.classic-ownlist).anime #list-container *,
+body.ownlist:not(.classic-ownlist).anime #list-container *::before,
+body.ownlist:not(.classic-ownlist).anime #list-container *::after,
+body.ownlist:not(.classic-ownlist).anime .header *,
+body.ownlist:not(.classic-ownlist).anime .header *::before,
+body.ownlist:not(.classic-ownlist).anime .header *::after {
+  box-sizing: border-box;
+}
+
+/* Normalize MAL's light/dark modes into the intentionally bright journal. */
+html.dark-mode body.ownlist:not(.classic-ownlist).anime,
+html.dark-mode body.ownlist:not(.classic-ownlist).anime #list-container,
+html.dark-mode body.ownlist:not(.classic-ownlist).anime .list-block {
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   02. Scoped links, controls, and focus
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime #list-container a,
+body.ownlist:not(.classic-ownlist).anime .header a,
+body.ownlist:not(.classic-ownlist).anime .list-menu-float a,
+body.ownlist:not(.classic-ownlist).anime footer a,
+body.ownlist:not(.classic-ownlist).anime #advanced-options a {
+  color: var(--color-ocean-deep);
+  text-decoration: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime a:focus-visible,
+body.ownlist:not(.classic-ownlist).anime input:focus-visible,
+body.ownlist:not(.classic-ownlist).anime select:focus-visible,
+body.ownlist:not(.classic-ownlist).anime textarea:focus-visible,
+body.ownlist:not(.classic-ownlist).anime button:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring);
+}
+
+body.ownlist:not(.classic-ownlist).anime input,
+body.ownlist:not(.classic-ownlist).anime select,
+body.ownlist:not(.classic-ownlist).anime textarea {
+  border: 1px solid rgba(11, 82, 117, 0.35);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+body.ownlist:not(.classic-ownlist).anime select,
+body.ownlist:not(.classic-ownlist).anime input[type="text"] {
+  min-height: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   03. Ensemble header
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime .header {
+  position: relative;
+  isolation: isolate;
+  width: min(calc(100% - 48px), var(--journal-width));
+  height: 378px;
+  margin: 24px auto 0;
+  overflow: hidden;
+  border: 1px solid rgba(11, 82, 117, 0.2);
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+  background-color: var(--color-ocean);
+  background-image:
+    linear-gradient(180deg, rgba(11, 82, 117, 0.04) 0 58%, rgba(11, 82, 117, 0.64) 100%),
+    var(--asset-chika-wallpaper),
+    var(--asset-riko-wallpaper),
+    var(--asset-kanan-wallpaper),
+    var(--asset-dia-wallpaper),
+    var(--asset-you-wallpaper),
+    var(--asset-yoshiko-wallpaper),
+    var(--asset-hanamaru-wallpaper),
+    var(--asset-mari-wallpaper),
+    var(--asset-ruby-wallpaper),
+    linear-gradient(180deg, #72d0e6 0, var(--color-ocean) 68%, var(--color-ocean-deep) 100%);
+  background-position:
+    center,
+    0 center,
+    12.5% center,
+    25% center,
+    37.5% center,
+    50% center,
+    62.5% center,
+    75% center,
+    87.5% center,
+    100% center,
+    center;
+  background-repeat: no-repeat;
+  background-size:
+    cover,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    11.15% auto,
+    cover;
+  box-shadow: 0 18px 40px rgba(11, 82, 117, 0.22);
+  color: var(--color-white);
+  animation: aqours-hero-arrive 680ms ease-out both;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header::before {
+  content: "NUMAZU COAST  ·  NINE STARS  ·  ONE JOURNEY";
+  position: absolute;
+  z-index: 2;
+  right: 26px;
+  bottom: 18px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(11, 82, 117, 0.74);
+  color: var(--color-white);
+  font-family: var(--font-hand);
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.94;
+  pointer-events: none;
+  animation: aqours-header-wave 12s ease-in-out infinite alternate;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header::after {
+  content: "Aqours · 7th Anniversary";
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  left: 22px;
+  padding: 8px 12px;
+  border: 2px solid rgba(255, 249, 232, 0.88);
+  border-radius: 5px;
+  background: rgba(255, 249, 232, 0.9);
+  box-shadow: 0 5px 12px rgba(23, 56, 74, 0.22);
+  color: var(--color-ocean-deep);
+  font-family: var(--font-hand);
+  font-size: 13px;
+  font-weight: 600;
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-title {
+  position: absolute;
+  z-index: 2;
+  top: auto;
+  right: auto;
+  bottom: 22px;
+  left: 50%;
+  display: block;
+  width: min(42%, 540px);
+  height: auto;
+  min-height: 112px;
+  padding: 18px 26px 16px;
+  overflow: visible;
+  border: 1px solid rgba(241, 228, 191, 0.88);
+  border-radius: 3px 12px 3px 12px;
+  background:
+    linear-gradient(90deg, transparent 0 9px, rgba(239, 106, 98, 0.16) 10px 12px, transparent 13px),
+    var(--color-paper);
+  box-shadow: 0 12px 24px rgba(23, 56, 74, 0.3);
+  color: transparent;
+  text-align: center;
+  text-indent: 0;
+  transform: translateX(-50%) rotate(-0.6deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
+  content: "Aqours Seaside Memory Voyage";
+  display: block;
+  color: var(--color-ocean-deep);
+  font-family: var(--font-hand);
+  font-size: clamp(27px, 2.6vw, 39px);
+  font-weight: 600;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
+  content: "Memories by the Sea · jmdspeedy's Anime List";
+  display: block;
+  margin-top: 10px;
+  color: var(--color-ink-muted);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu {
+  z-index: 10;
+  top: 12px;
+  right: 16px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 8px;
+  background: rgba(11, 82, 117, 0.92);
+  color: var(--color-white);
+  box-shadow: 0 3px 8px rgba(23, 56, 74, 0.2);
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu .btn-menu,
+body.ownlist:not(.classic-ownlist).anime .header .header-menu .header-info {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu a {
+  color: var(--color-white);
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu .list-menu {
+  top: calc(100% + 6px);
+  right: 0;
+  overflow: hidden;
+  border: 1px solid rgba(11, 82, 117, 0.32);
+  border-radius: 8px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-card);
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu .list-menu .icon-menu {
+  background: var(--color-paper);
+  color: var(--color-ocean-deep);
+}
+
+body.ownlist:not(.classic-ownlist).anime .header .header-menu .list-menu .icon-menu:hover {
+  background: var(--color-paper-deep);
+}
+
+/* The original MAL cover block would compete with the compact ensemble header. */
+body.ownlist:not(.classic-ownlist).anime #list-container > .cover-block {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   04. Journal surface and floating MAL menu
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime #list-container {
+  position: relative;
+  isolation: isolate;
+  width: min(calc(100% - 48px), var(--journal-width));
+  min-height: 70vh;
+  margin: 0 auto 36px;
+  overflow: visible;
+  border: 1px solid rgba(11, 82, 117, 0.2);
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  background-color: var(--color-paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(22, 143, 197, 0.035) 28px 29px),
+    radial-gradient(circle at 15% 20%, rgba(241, 228, 191, 0.4) 0 1px, transparent 2px);
+  background-size: auto, 17px 17px;
+  box-shadow: var(--shadow-journal);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-block {
+  min-height: 0;
+  margin: 0;
+  padding: 0 22px 28px;
+  background-color: transparent;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, transparent 0 56%, rgba(22, 143, 197, 0.11) 56.3% 56.7%, transparent 57%),
+    radial-gradient(ellipse at 88% 76%, transparent 0 58%, rgba(239, 106, 98, 0.09) 58.3% 58.7%, transparent 59%);
+  background-repeat: repeat-y;
+  background-size: 100% 920px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float {
+  top: 18%;
+  left: 10px;
+  width: 48px;
+  overflow: visible;
+  border: 1px solid rgba(11, 82, 117, 0.24);
+  border-radius: 8px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-card);
+  z-index: 30;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu {
+  width: 48px;
+  height: 48px;
+  background: var(--color-paper);
+  transition: background-color 160ms ease-out, transform 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:first-child {
+  border-radius: 7px 7px 0 0;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:last-child {
+  border-radius: 0 0 7px 7px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:hover,
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:focus-within {
+  background: var(--color-ocean-deep);
+  transform: translateX(2px);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu svg.icon {
+  fill: var(--color-ocean-deep);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:hover svg.icon,
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu:focus-within svg.icon {
+  fill: var(--color-white);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu .text {
+  top: 8px;
+  height: 32px;
+  padding: 7px 0;
+  border-radius: 0 8px 8px 0;
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   05. Scrapbook status tabs and search
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime #status-menu {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: auto;
+  padding-top: 82px;
+  border: 0;
+  background: var(--color-paper-deep);
+  box-shadow: inset 0 -1px rgba(11, 82, 117, 0.2), 0 3px 8px rgba(23, 56, 74, 0.08);
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 10px;
+  right: 22px;
+  left: 22px;
+  height: 64px;
+  border: 5px solid var(--color-paper);
+  border-radius: 5px;
+  background-color: var(--color-paper);
+  background-image:
+    var(--asset-chika-icon),
+    var(--asset-riko-icon),
+    var(--asset-kanan-icon),
+    var(--asset-dia-icon),
+    var(--asset-you-icon),
+    var(--asset-yoshiko-icon),
+    var(--asset-hanamaru-icon),
+    var(--asset-mari-icon),
+    var(--asset-ruby-icon),
+    linear-gradient(90deg,
+      var(--member-chika) 0 11.11%,
+      var(--member-riko) 11.11% 22.22%,
+      var(--member-kanan) 22.22% 33.33%,
+      var(--member-dia) 33.33% 44.44%,
+      var(--member-you) 44.44% 55.55%,
+      var(--member-yoshiko) 55.55% 66.66%,
+      var(--member-hanamaru) 66.66% 77.77%,
+      var(--member-mari) 77.77% 88.88%,
+      var(--member-ruby) 88.88% 100%);
+  background-position:
+    0 center,
+    12.5% center,
+    25% center,
+    37.5% center,
+    50% center,
+    62.5% center,
+    75% center,
+    87.5% center,
+    100% center,
+    center;
+  background-repeat: no-repeat;
+  background-size: 56px 56px, 56px 56px, 56px 56px, 56px 56px, 56px 56px,
+    56px 56px, 56px 56px, 56px 56px, 56px 56px, cover;
+  box-shadow: 0 4px 10px rgba(23, 56, 74, 0.16);
+  pointer-events: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-menu {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+  min-height: 66px;
+  padding: 15px 20px 0;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 15px 12px;
+  border: 1px solid rgba(11, 82, 117, 0.22);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: rgba(255, 249, 232, 0.82);
+  box-shadow: 0 -2px 5px rgba(23, 56, 74, 0.08);
+  color: var(--color-ocean-deep);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform 120ms ease-out, background-color 120ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 4px;
+  left: 10px;
+  height: 3px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button:hover,
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button:focus-visible {
+  background: var(--color-white);
+  transform: translateY(-2px);
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button.on {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: inset 0 3px rgba(11, 82, 117, 0.08);
+  transform: translateY(1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .status-button.on::after {
+  background: var(--color-sun);
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
+  position: static;
+  top: auto;
+  right: auto;
+  display: flex;
+  align-items: center;
+  min-width: 172px;
+  min-height: 42px;
+  margin: 0 0 7px auto;
+  border: 1px solid rgba(11, 82, 117, 0.28);
+  border-radius: 8px;
+  background: var(--color-paper);
+  box-shadow: inset 0 2px 4px rgba(23, 56, 74, 0.08);
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu #search-box {
+  display: block;
+  flex: 1 1 auto;
+  width: auto;
+  margin: 0;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu #search-box input {
+  display: block;
+  width: 100%;
+  min-width: 140px;
+  height: 38px;
+  padding: 7px 8px 7px 11px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--color-ink);
+  font-size: 13px;
+}
+
+body.ownlist:not(.classic-ownlist).anime #status-menu #search-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--color-ocean-deep);
+}
+
+/* --------------------------------------------------------------------------
+   06. List title, statistics, sorting, and advanced options
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime .list-unit {
+  width: 100%;
+  margin: 0;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+  min-height: 52px;
+  margin: 20px 0 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(11, 82, 117, 0.24);
+  border-radius: 8px 8px 0 0;
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+  box-shadow: 0 3px 8px rgba(23, 56, 74, 0.12);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-status-title .text {
+  color: var(--color-white);
+  font-family: var(--font-hand);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-status-title .stats {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: auto;
+}
+
+body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+  font-size: 12px;
+  transition: background-color 160ms ease-out, transform 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:hover,
+body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-unit .list-stats {
+  width: auto;
+  min-height: 38px;
+  padding: 10px 14px;
+  border: 1px solid rgba(11, 82, 117, 0.22);
+  border-top: 0;
+  background: var(--color-paper-deep);
+  color: var(--color-ink-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-unit .list-stats a {
+  color: var(--color-ocean-deep);
+  font-weight: 700;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-unit .loading-space {
+  height: 12px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody:first-child {
+  grid-column: 1 / -1;
+  display: block;
+  margin-bottom: 2px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 7px 10px;
+  border: 1px solid rgba(11, 82, 117, 0.22);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background: rgba(255, 249, 232, 0.92);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title {
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.title,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.score,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.type,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.progress,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.rated,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.started,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.finished {
+  display: block;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title:not(.status):not(.number):not(.image):not(.tags) {
+  color: var(--color-ocean-deep);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px solid rgba(11, 82, 117, 0.2);
+  border-radius: 8px;
+  background: var(--color-white);
+  transition: background-color 160ms ease-out, transform 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:hover,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:focus-visible {
+  background: var(--color-sun);
+  transform: translateY(-1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options {
+  position: fixed;
+  z-index: 50;
+  top: 5vh;
+  right: 24px;
+  left: 24px;
+  width: min(860px, calc(100% - 48px));
+  max-height: 90vh;
+  margin: 0 auto;
+  padding: 24px 0 28px;
+  overflow: auto;
+  border: 1px solid rgba(11, 82, 117, 0.28);
+  border-radius: 18px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 24px 60px rgba(11, 82, 117, 0.34);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .advanced-options-header,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .sort-widget,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .filter-widget,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .advanced-options-button {
+  width: min(750px, calc(100% - 32px));
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .advanced-options-header,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .advanced-options-button {
+  border-color: rgba(11, 82, 117, 0.24);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options select,
+body.ownlist:not(.classic-ownlist).anime #advanced-options input[type="text"] {
+  border-color: rgba(11, 82, 117, 0.32);
+  border-radius: 8px;
+  background-color: var(--color-white);
+  color: var(--color-ink);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .sort-widget input[type="radio"] + label {
+  border-color: rgba(11, 82, 117, 0.32);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .sort-widget input[type="radio"]:checked + label {
+  border-color: var(--color-ocean-deep);
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-apply,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-clear {
+  min-height: 34px;
+  border-radius: 8px;
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-apply:hover,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-clear:hover {
+  background: var(--color-ocean-deep);
+  opacity: 0.88;
+}
+
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-apply:active,
+body.ownlist:not(.classic-ownlist).anime #advanced-options .btn-clear:active {
+  transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   07. Photo-card grid and foundations
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime .list-table {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 26px;
+  row-gap: 34px;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: separate;
+  background: transparent;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 8px solid var(--color-paper);
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 42px),
+    var(--color-paper);
+  box-shadow: var(--shadow-card);
+  transform: rotate(-0.55deg);
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+/* Four equal-footprint scrapbook treatments; only decoration changes. */
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 2) {
+  border: 7px solid transparent;
+  border-radius: 3px;
+  background:
+    linear-gradient(var(--color-paper), var(--color-paper)) padding-box,
+    repeating-linear-gradient(135deg,
+      var(--color-coral) 0 7px,
+      var(--color-paper) 7px 13px,
+      var(--color-ocean) 13px 20px,
+      var(--color-paper) 20px 26px) border-box;
+  transform: rotate(0.48deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 3) {
+  border: 2px dashed rgba(11, 82, 117, 0.46);
+  border-left: 12px solid var(--color-coral);
+  border-radius: 12px 4px 12px 4px;
+  background:
+    linear-gradient(90deg, rgba(246, 200, 76, 0.16), transparent 22%),
+    var(--color-paper);
+  transform: rotate(-0.35deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n) {
+  border: 10px solid var(--color-paper-deep);
+  border-radius: 2px;
+  background: var(--color-paper-deep);
+  box-shadow: 0 7px 16px rgba(23, 56, 74, 0.2), inset 0 0 0 1px rgba(11, 82, 117, 0.12);
+  transform: rotate(0.62deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(8n + 4),
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(8n + 7) {
+  margin-top: 22px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within {
+  z-index: 8;
+  box-shadow: var(--shadow-card-lifted);
+  transform: translateY(-4px) rotate(0deg);
+}
+
+/* Current engines also receive an explicit descendant-focus fallback because
+   some table-row-group implementations do not repaint :focus-within reliably. */
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:has(:focus) {
+  z-index: 8;
+  box-shadow: var(--shadow-card-lifted);
+  transform: translateY(-4px) rotate(0deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item::before,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -2px;
+  width: 58px;
+  height: 16px;
+  border: 1px solid rgba(198, 138, 22, 0.16);
+  background: rgba(246, 200, 76, 0.44);
+  pointer-events: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item::before {
+  left: -16px;
+  transform: rotate(-6deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item::after {
+  right: -16px;
+  transform: rotate(6deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 2)::before {
+  top: 12px;
+  left: -22px;
+  width: 74px;
+  height: 22px;
+  border-color: rgba(239, 106, 98, 0.22);
+  background: rgba(239, 106, 98, 0.28);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 2)::after {
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(11, 82, 117, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  transform: rotate(-11deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 3)::before {
+  content: "MEMORY TICKET";
+  top: 74px;
+  left: -8px;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-hand);
+  font-size: 9px;
+  writing-mode: vertical-rl;
+  transform: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 3)::after {
+  top: 12px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(11, 82, 117, 0.28);
+  border-radius: 50%;
+  background: var(--color-paper-deep);
+  transform: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n)::before {
+  top: -4px;
+  left: 50%;
+  width: 88px;
+  height: 21px;
+  background: rgba(246, 200, 76, 0.56);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n)::after {
+  display: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-data {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "image image"
+    "title title"
+    "score progress";
+  grid-template-rows: auto minmax(76px, auto) 52px;
+  width: 100%;
+  min-width: 0;
+  padding: 9px 9px 11px;
+  border: 0;
+  background: transparent;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-data > .data {
+  display: block;
+  min-width: 0;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  line-height: 1.35;
+  text-align: left;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-data > .data.number {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   08. Cover, title, score, progress, metadata, and controls
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.image {
+  position: relative;
+  grid-area: image;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 2px solid var(--color-white);
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, rgba(189, 234, 244, 0.72), rgba(255, 249, 232, 0.96));
+  box-shadow: inset 0 0 0 1px rgba(11, 82, 117, 0.16);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.image::before {
+  content: "No cover";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  color: var(--color-ocean-deep);
+  font-size: 12px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.image > a {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title {
+  position: static;
+  grid-area: title;
+  min-height: 76px;
+  padding: 12px 7px 7px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title > a.link {
+  position: static;
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--color-ink);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 2) .data.title {
+  margin-top: 5px;
+  border-top: 3px double rgba(239, 106, 98, 0.34);
+  background: linear-gradient(90deg, rgba(239, 106, 98, 0.08), transparent 58%);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 3) .data.title {
+  margin: 7px 5px 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px dashed rgba(11, 82, 117, 0.28);
+  border-radius: 4px;
+  background: rgba(246, 200, 76, 0.09);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n) .data.title {
+  margin-top: 4px;
+  border-top: 1px solid rgba(11, 82, 117, 0.2);
+  background: rgba(255, 249, 232, 0.72);
+}
+
+/* The native title anchor supplies the large safe card click target. */
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title > a.link::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: 5px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title > a.link:focus-visible {
+  box-shadow: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title > a.link:focus-visible::after {
+  box-shadow: inset 0 0 0 3px var(--color-ocean), inset 0 0 0 5px var(--color-paper);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 3px;
+  padding: 7px 10px;
+  border-top: 1px dashed rgba(11, 82, 117, 0.28);
+  background: rgba(241, 228, 191, 0.32);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  pointer-events: auto;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score {
+  grid-area: score;
+  border-radius: 0 0 0 4px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score::before {
+  content: "Score ";
+  margin-right: 4px;
+  color: var(--color-ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress {
+  grid-area: progress;
+  justify-content: flex-end;
+  border-radius: 0 0 4px 0;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress::before {
+  content: "Eps ";
+  margin-right: 4px;
+  color: var(--color-ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score > a,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress a,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress input,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score select {
+  position: relative;
+  z-index: 5;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score > a,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score select,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress input {
+  padding: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress .icon-add-episode {
+  color: var(--color-ocean-deep);
+  font-size: 16px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.progress .icon-add-episode:active,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.score > a:active,
+body.ownlist:not(.classic-ownlist).anime .list-table .add-edit-more a:active {
+  transform: translateY(1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .add-edit-more {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 7px;
+  border: 1px solid rgba(11, 82, 117, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 249, 232, 0.94);
+  box-shadow: 0 2px 6px rgba(23, 56, 74, 0.14);
+  color: var(--color-ink-muted);
+  font-size: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: opacity 180ms ease-out, transform 180ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .add-edit-more a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 5px;
+  color: var(--color-ocean-deep);
+  font-weight: 700;
+  pointer-events: auto;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .icon-watch2,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .rewatching,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .content-status {
+  position: relative;
+  z-index: 6;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.title .icon-watch2 a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .add-edit-more,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .add-edit-more {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:has(:focus) .add-edit-more {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Secondary columns form one bounded paper-label reveal over the cover. */
+body.ownlist:not(.classic-ownlist).anime .list-table .data.type,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.rated,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.started,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.days,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes {
+  position: absolute;
+  z-index: 4;
+  right: 16px;
+  left: 16px;
+  display: block;
+  max-height: 74px;
+  overflow: auto;
+  padding: 5px 7px;
+  border: 1px solid rgba(11, 82, 117, 0.18);
+  background: rgba(255, 249, 232, 0.94);
+  color: var(--color-ink);
+  font-size: 11px;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.type { bottom: 126px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.rated { bottom: 98px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags { bottom: 70px; }
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.started { bottom: 154px; }
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.days { bottom: 182px; }
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes { bottom: 210px; }
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.type,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.rated,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.tags,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.studio,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.airing-started,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.airing-finished,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.started,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.finished,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.days,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.storage,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.priority,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.notes,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.type,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.rated,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.tags,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.studio,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.airing-started,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.airing-finished,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.started,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.finished,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.days,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.storage,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.priority,
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within .data.notes {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:has(:focus) .data:is(
+  .type,
+  .rated,
+  .tags,
+  .studio,
+  .airing-started,
+  .airing-finished,
+  .started,
+  .finished,
+  .days,
+  .storage,
+  .priority,
+  .notes
+) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags a,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags textarea,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags .edit,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes a,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes textarea {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags textarea,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes textarea {
+  width: 100%;
+  min-height: 54px;
+  padding: 6px;
+  resize: vertical;
+}
+
+/* MAL's fetched More row remains a native independent interaction surface. */
+body.ownlist:not(.classic-ownlist).anime .list-table .more-info {
+  position: relative;
+  z-index: 7;
+  width: 100%;
+  border: 0;
+  background: var(--color-paper);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .more-info .more-content {
+  display: block;
+  max-height: 220px;
+  padding: 10px;
+  overflow: auto;
+  border-top: 1px dashed rgba(11, 82, 117, 0.32);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 11px;
+}
+
+/* --------------------------------------------------------------------------
+   09. Status stamps (color plus a non-color symbol and label)
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  left: 14px;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 0;
+  pointer-events: none;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status::after {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(23, 56, 74, 0.2);
+  color: var(--color-white);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status.watching::after {
+  content: "▶ WATCHING";
+  background: var(--status-watching);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status.completed::after {
+  content: "✓ COMPLETED";
+  background: var(--status-completed);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status.onhold::after {
+  content: "Ⅱ ON HOLD";
+  background: var(--status-onhold);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status.dropped::after {
+  content: "× DROPPED";
+  background: var(--status-dropped);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .data.status.plantowatch::after {
+  content: "○ PLANNED";
+  background: var(--status-planned);
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer
+   -------------------------------------------------------------------------- */
+
+body.ownlist:not(.classic-ownlist).anime footer {
+  width: min(calc(100% - 48px), var(--journal-width));
+  margin: 0 auto 24px;
+}
+
+body.ownlist:not(.classic-ownlist).anime footer #footer-block {
+  padding: 18px 16px;
+  border-top: 3px solid var(--color-ocean);
+  border-radius: 8px;
+  background: var(--color-paper);
+  box-shadow: 0 8px 22px rgba(11, 82, 117, 0.16);
+}
+
+body.ownlist:not(.classic-ownlist).anime footer #copyright,
+body.ownlist:not(.classic-ownlist).anime footer #recaptcha-terms {
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+body.ownlist:not(.classic-ownlist).anime footer a {
+  color: var(--color-ocean-deep);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsive layout
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1439px) {
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1179px) {
+  body.ownlist:not(.classic-ownlist).anime .header,
+  body.ownlist:not(.classic-ownlist).anime #list-container,
+  body.ownlist:not(.classic-ownlist).anime footer {
+    width: min(calc(100% - 32px), var(--journal-width));
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-menu {
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
+    min-height: 36px;
+    border-bottom: 1px solid rgba(11, 82, 117, 0.22);
+    border-radius: 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
+    flex: 1 1 170px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 899px) {
+  body.ownlist:not(.classic-ownlist).anime .header {
+    height: 200px;
+    background-size: cover, 28px 28px, cover, cover;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header::after {
+    width: 118px;
+    height: 118px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title {
+    top: 68px;
+    width: min(45%, 330px);
+    min-height: 94px;
+    padding: 16px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
+    font-size: 23px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-block {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-menu-float {
+    display: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #advanced-options .sort-widget .widget-header,
+  body.ownlist:not(.classic-ownlist).anime #advanced-options .filter-widget .widget-header {
+    display: block;
+    width: auto;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 559px) {
+  body.ownlist:not(.classic-ownlist).anime {
+    background-attachment: scroll;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header,
+  body.ownlist:not(.classic-ownlist).anime #list-container,
+  body.ownlist:not(.classic-ownlist).anime footer {
+    width: calc(100% - 16px);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header {
+    height: 180px;
+    margin-top: 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header::after {
+    left: 14px;
+    bottom: 14px;
+    width: 92px;
+    height: 92px;
+    border-width: 5px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title {
+    top: 68px;
+    right: 12px;
+    width: calc(100% - 132px);
+    min-height: 92px;
+    padding: 13px 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
+    font-size: 19px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
+    margin-top: 7px;
+    font-size: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-menu {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    padding: 6px 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-menu {
+    gap: 5px;
+    padding: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
+    flex: 1 1 calc(50% - 5px);
+    padding: 7px 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
+    flex-basis: 100%;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-block {
+    padding: 0 10px 18px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-status-title .text {
+    font-size: 17px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-status-title .stats {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .list-table-data {
+    grid-template-columns: minmax(132px, 42%) minmax(0, 1fr);
+    grid-template-areas:
+      "image title"
+      "image score"
+      "image progress";
+    grid-template-rows: minmax(72px, auto) 46px 46px;
+    min-height: 218px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.image {
+    align-self: stretch;
+    height: 100%;
+    min-height: 198px;
+    aspect-ratio: auto;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title {
+    min-height: 0;
+    padding: 10px 7px 4px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.score,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.progress {
+    margin: 0 0 0 7px;
+    border-top: 1px dashed rgba(11, 82, 117, 0.28);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title .add-edit-more {
+    top: 92px;
+    right: 10px;
+    bottom: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  /* Touch/narrow fallback: keep non-essential hover metadata out of the way. */
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.type,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.rated,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.tags,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.days,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.notes {
+    display: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #advanced-options {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    max-height: calc(100vh - 16px);
+    padding-top: 16px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #advanced-options select,
+  body.ownlist:not(.classic-ownlist).anime #advanced-options input[type="text"] {
+    max-width: 100%;
+  }
+}
+
+/* Showcase-dominant v0.2 breakpoint overrides. These intentionally follow the
+   v0.1 compatibility rules so pasted upgrades remain predictable. */
+@media (max-width: 1479px) {
+  body.ownlist:not(.classic-ownlist).anime .header,
+  body.ownlist:not(.classic-ownlist).anime #list-container,
+  body.ownlist:not(.classic-ownlist).anime footer {
+    width: min(calc(100% - 32px), var(--journal-width));
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header {
+    height: 350px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 32px;
+  }
+}
+
+@media (max-width: 1039px) {
+  body.ownlist:not(.classic-ownlist).anime .header {
+    height: 304px;
+    background-size:
+      cover,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      11.15% auto,
+      cover;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title {
+    top: auto;
+    right: auto;
+    bottom: 18px;
+    left: 50%;
+    width: min(62%, 520px);
+    min-height: 94px;
+    padding: 14px 20px;
+    transform: translateX(-50%) rotate(-0.6deg);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
+    font-size: clamp(24px, 4vw, 32px);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header::before,
+  body.ownlist:not(.classic-ownlist).anime .header::after {
+    display: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu {
+    padding-top: 0;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu::before {
+    display: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-menu {
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 12px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
+    min-height: 38px;
+    border-bottom: 1px solid rgba(11, 82, 117, 0.22);
+    border-radius: 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
+    flex: 1 1 190px;
+    margin-bottom: 0;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-block {
+    padding-right: 16px;
+    padding-left: 16px;
+    background-image: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(8n + 4),
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(8n + 7) {
+    margin-top: 0;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-menu-float {
+    display: none;
+  }
+}
+
+@media (max-width: 659px) {
+  body.ownlist:not(.classic-ownlist).anime {
+    background-attachment: scroll;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header,
+  body.ownlist:not(.classic-ownlist).anime #list-container,
+  body.ownlist:not(.classic-ownlist).anime footer {
+    width: calc(100% - 16px);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header {
+    height: 254px;
+    margin-top: 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title {
+    top: auto;
+    right: auto;
+    bottom: 12px;
+    left: 50%;
+    width: calc(100% - 32px);
+    min-height: 86px;
+    padding: 12px 14px;
+    transform: translateX(-50%) rotate(-0.4deg);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
+    font-size: 23px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .header .header-menu {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    padding: 6px 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-menu {
+    gap: 5px;
+    padding: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
+    flex: 1 1 calc(50% - 5px);
+    padding: 8px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
+    flex-basis: 100%;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-block {
+    padding: 0 10px 18px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-status-title .text {
+    font-size: 21px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-status-title .stats {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item {
+    border-width: 6px;
+    transform: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .list-table-data {
+    grid-template-columns: minmax(140px, 42%) minmax(0, 1fr);
+    grid-template-areas:
+      "image title"
+      "image score"
+      "image progress";
+    grid-template-rows: minmax(90px, auto) 52px 52px;
+    min-height: 244px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.image {
+    align-self: stretch;
+    height: 100%;
+    min-height: 224px;
+    aspect-ratio: auto;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title {
+    min-height: 0;
+    margin: 0;
+    padding: 12px 8px 5px;
+    border: 0;
+    background: transparent;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title > a.link {
+    font-size: 15px;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.score,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.progress {
+    margin: 0 0 0 8px;
+    border-top: 1px dashed rgba(11, 82, 117, 0.28);
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title .add-edit-more {
+    top: 104px;
+    right: 12px;
+    bottom: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.type,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.rated,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.tags,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.days,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.notes {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Reduced motion and compatibility
+   -------------------------------------------------------------------------- */
+
+@keyframes aqours-hero-arrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aqours-header-wave {
+  from { opacity: 0.46; transform: translateX(-10px) scaleX(0.98); }
+  to { opacity: 0.82; transform: translateX(10px) scaleX(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.ownlist:not(.classic-ownlist).anime .header,
+  body.ownlist:not(.classic-ownlist).anime .header::before {
+    animation: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item,
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 2),
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n + 3),
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:nth-of-type(4n),
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover,
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:focus-within,
+  body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:has(:focus) {
+    transform: none;
+    transition: none;
+  }
+
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.title .add-edit-more,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.type,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.rated,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.tags,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.started,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.days,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.notes,
+  body.ownlist:not(.classic-ownlist).anime #status-menu .status-button,
+  body.ownlist:not(.classic-ownlist).anime .list-menu-float .icon-menu {
+    transition: none;
+  }
+}
+
+@supports not (aspect-ratio: 2 / 3) {
+  body.ownlist:not(.classic-ownlist).anime .list-table .data.image {
+    height: 260px;
+  }
+}

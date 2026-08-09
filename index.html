@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b5275">
+  <title>Aqours Seaside Memory Voyage</title>
+  <style>
+    @font-face{font-family:MPlusRounded;src:url("assets/fonts/m-plus-rounded-1c-latin-400-v1.woff2") format("woff2");font-display:swap}
+    @font-face{font-family:MPlusRounded;src:url("assets/fonts/m-plus-rounded-1c-latin-800-v1.woff2") format("woff2");font-weight:800;font-display:swap}
+    @font-face{font-family:KleeOne;src:url("assets/fonts/klee-one-latin-600-v1.woff2") format("woff2");font-weight:600;font-display:swap}
+    :root{color-scheme:light;--navy:#16324a;--paper:#fff8e8;--sun:#ffd447}
+    *{box-sizing:border-box}
+    body{margin:0;color:var(--navy);font-family:MPlusRounded,system-ui,sans-serif;background:#dff6f7;background-image:radial-gradient(#fff9 1px,transparent 1px),linear-gradient(150deg,#e9fbf8,#badfe9);background-size:18px 18px,auto}
+    header{min-height:56vh;display:grid;place-items:end center;padding:32px 20px;background-image:linear-gradient(180deg,#07385420,#07385470),url("assets/images/chika-7th-wallpaper-v1.webp"),url("assets/images/riko-7th-wallpaper-v1.webp"),url("assets/images/you-7th-wallpaper-v1.webp"),url("assets/images/kanan-7th-wallpaper-v1.webp"),url("assets/images/dia-7th-wallpaper-v1.webp"),url("assets/images/yoshiko-7th-wallpaper-v1.webp"),url("assets/images/hanamaru-7th-wallpaper-v1.webp"),url("assets/images/mari-7th-wallpaper-v1.webp"),url("assets/images/ruby-7th-wallpaper-v1.webp");background-position:center,0 center,12.5% center,25% center,37.5% center,50% center,62.5% center,75% center,87.5% center,100% center;background-repeat:no-repeat;background-size:cover,11.2% auto,11.2% auto,11.2% auto,11.2% auto,11.2% auto,11.2% auto,11.2% auto,11.2% auto}
+    .label{max-width:780px;padding:22px 32px;text-align:center;background:var(--paper);border:2px solid #fff;border-radius:5px;box-shadow:0 12px 28px #082e4560;transform:rotate(-.5deg)}
+    h1{margin:0;font:600 clamp(2rem,5vw,4.5rem)/1 KleeOne,cursive;color:#0b5275}
+    .label p{margin:10px 0 0;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    main{width:min(900px,calc(100% - 32px));margin:28px auto 56px;padding:30px;background:var(--paper);border:1px solid #e8d8b9;border-radius:8px;box-shadow:0 12px 30px #0b527522}
+    h2{font:600 1.8rem KleeOne,cursive;color:#0b5275}
+    a{color:#075b82;font-weight:800}
+    code{padding:.15em .35em;background:#f0e6cf;border-radius:4px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .button{display:inline-block;padding:11px 16px;color:#fff;text-decoration:none;background:#0b5275;border-radius:8px;box-shadow:0 4px 0 #06334a}
+    .button.alt{color:var(--navy);background:var(--sun);box-shadow:0 4px 0 #d3a900}
+    footer{text-align:center;padding:20px;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="label">
+      <h1>Aqours Seaside Memory Voyage</h1>
+      <p>Nine stars · one journey · a custom MyAnimeList theme</p>
+    </div>
+  </header>
+  <main>
+    <h2>A seaside scrapbook for an anime list</h2>
+    <p>This GitHub Pages site hosts the optimized artwork and fonts used by the
+      showcase-first Modern MyAnimeList stylesheet. The list itself remains
+      fully functional when these hosted assets are unavailable.</p>
+    <p>Install by copying the full contents of <code>aqours-journal.css</code>
+      into MyAnimeList's Modern theme editor.</p>
+    <div class="actions">
+      <a class="button" href="aqours-journal.css">Open the stylesheet</a>
+      <a class="button alt" href="https://myanimelist.net/animelist/jmdspeedy">View the anime list</a>
+    </div>
+  </main>
+  <footer>CSS and documentation © 2026 jmdspeedy. Third-party artwork and fonts retain their original rights.</footer>
+</body>
+</html>
