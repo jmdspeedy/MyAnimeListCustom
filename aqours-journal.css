@@ -248,25 +248,6 @@ body.ownlist:not(.classic-ownlist).anime .header {
   animation: aqours-hero-arrive 680ms ease-out both;
 }
 
-body.ownlist:not(.classic-ownlist).anime .header::before {
-  content: "NUMAZU COAST  ·  NINE STARS  ·  ONE JOURNEY";
-  position: absolute;
-  z-index: 2;
-  right: 26px;
-  bottom: 18px;
-  padding: 8px 14px;
-  border: 1px dashed rgba(255, 255, 255, 0.72);
-  border-radius: 999px;
-  background: rgba(11, 82, 117, 0.74);
-  color: var(--color-white);
-  font-family: var(--font-hand);
-  font-size: 12px;
-  font-weight: 600;
-  opacity: 0.94;
-  pointer-events: none;
-  animation: aqours-header-wave 12s ease-in-out infinite alternate;
-}
-
 body.ownlist:not(.classic-ownlist).anime .header .header-title {
   position: absolute;
   z-index: 2;
@@ -533,8 +514,10 @@ body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
   right: auto;
   display: flex;
   align-items: center;
-  min-width: 172px;
-  min-height: 42px;
+  width: 220px;
+  min-width: 180px;
+  height: 44px;
+  min-height: 44px;
   margin: 0 0 7px auto;
   border: 1px solid rgba(11, 82, 117, 0.28);
   border-radius: 8px;
@@ -581,9 +564,9 @@ body.ownlist:not(.classic-ownlist).anime .list-unit {
 }
 
 body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   width: auto;
   min-height: 52px;
   margin: 20px 0 0;
@@ -596,6 +579,8 @@ body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
 }
 
 body.ownlist:not(.classic-ownlist).anime .list-status-title .text {
+  grid-column: 2;
+  justify-self: center;
   color: var(--color-white);
   font-family: var(--font-hand);
   font-size: 24px;
@@ -605,6 +590,8 @@ body.ownlist:not(.classic-ownlist).anime .list-status-title .text {
 }
 
 body.ownlist:not(.classic-ownlist).anime .list-status-title .stats {
+  grid-column: 3;
+  justify-self: end;
   position: static;
   display: flex;
   align-items: center;
@@ -681,9 +668,9 @@ body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
-  min-height: 42px;
-  padding: 7px 10px;
+  gap: 8px;
+  min-height: 46px;
+  padding: 8px 12px;
   border: 1px solid rgba(11, 82, 117, 0.22);
   border-top: 0;
   border-radius: 0 0 8px 8px;
@@ -706,7 +693,8 @@ body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.rated,
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.started,
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-title.finished {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link,
@@ -719,18 +707,75 @@ body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .header-
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 4px 8px;
+  justify-content: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px 11px;
   border: 1px solid rgba(11, 82, 117, 0.2);
-  border-radius: 8px;
+  border-radius: 9px;
   background: var(--color-white);
+  box-shadow: 0 1px 0 rgba(23, 56, 74, 0.08);
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
   transition: background-color 160ms ease-out, transform 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort {
+  padding-right: 9px;
+}
+
+/* Keep MAL's native direction glyph, but give it a deliberate, roomy home. */
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon {
+  display: inline-flex;
+  flex: 0 0 18px;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 1px;
+  border: 1px solid rgba(11, 82, 117, 0.24);
+  border-radius: 50%;
+  background: var(--color-paper-deep);
+  color: var(--color-ink-muted);
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon.fa-sort-asc,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon.fa-sort-up,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon.fa-sort-desc,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon.fa-sort-down {
+  border-color: rgba(211, 169, 0, 0.7);
+  background: var(--color-sun);
+  color: var(--color-ocean-deep);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon .fa-sort-asc,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon .fa-sort-up,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon .fa-sort-desc,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link.sort .sort-icon .fa-sort-down {
+  position: static;
+  top: auto;
+  display: block;
+  line-height: 1;
 }
 
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:hover,
 body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:focus-visible {
   background: var(--color-sun);
+  border-color: rgba(11, 82, 117, 0.36);
   transform: translateY(-1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:hover .sort-icon,
+body.ownlist:not(.classic-ownlist).anime .list-table .list-table-header .link:focus-visible .sort-icon {
+  border-color: rgba(11, 82, 117, 0.34);
+  background: var(--color-white);
+  color: var(--color-ocean-deep);
 }
 
 body.ownlist:not(.classic-ownlist).anime #advanced-options {
@@ -1592,6 +1637,7 @@ body.ownlist:not(.classic-ownlist).anime footer a {
   }
 
   body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
+    display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
@@ -1735,10 +1781,6 @@ body.ownlist:not(.classic-ownlist).anime footer a {
     font-size: clamp(24px, 4vw, 32px);
   }
 
-  body.ownlist:not(.classic-ownlist).anime .header::before {
-    display: none;
-  }
-
   body.ownlist:not(.classic-ownlist).anime #status-menu {
     padding-top: 0;
   }
@@ -1842,6 +1884,7 @@ body.ownlist:not(.classic-ownlist).anime footer a {
   }
 
   body.ownlist:not(.classic-ownlist).anime .list-unit .list-status-title {
+    display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
@@ -1939,14 +1982,8 @@ body.ownlist:not(.classic-ownlist).anime footer a {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes aqours-header-wave {
-  from { opacity: 0.46; transform: translateX(-10px) scaleX(0.98); }
-  to { opacity: 0.82; transform: translateX(10px) scaleX(1.02); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  body.ownlist:not(.classic-ownlist).anime .header,
-  body.ownlist:not(.classic-ownlist).anime .header::before {
+  body.ownlist:not(.classic-ownlist).anime .header {
     animation: none;
   }
 
