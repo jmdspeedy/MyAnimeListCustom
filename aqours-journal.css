@@ -1321,21 +1321,21 @@ body.ownlist:not(.classic-ownlist).anime .list-table .data.notes {
   transition: opacity 200ms ease-out, transform 200ms ease-out;
 }
 
-body.ownlist:not(.classic-ownlist).anime .list-table .data.type { bottom: 126px; }
-body.ownlist:not(.classic-ownlist).anime .list-table .data.rated { bottom: 98px; }
-body.ownlist:not(.classic-ownlist).anime .list-table .data.tags { bottom: 70px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.type { bottom: 250px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.rated { bottom: 222px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags { bottom: 194px; }
 
 body.ownlist:not(.classic-ownlist).anime .list-table .data.studio,
 body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-started,
-body.ownlist:not(.classic-ownlist).anime .list-table .data.started { bottom: 154px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.started { bottom: 278px; }
 
 body.ownlist:not(.classic-ownlist).anime .list-table .data.airing-finished,
 body.ownlist:not(.classic-ownlist).anime .list-table .data.finished,
-body.ownlist:not(.classic-ownlist).anime .list-table .data.days { bottom: 182px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.days { bottom: 306px; }
 
 body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
 body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
-body.ownlist:not(.classic-ownlist).anime .list-table .data.notes { bottom: 210px; }
+body.ownlist:not(.classic-ownlist).anime .list-table .data.notes { bottom: 334px; }
 
 body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.type,
 body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.rated,
