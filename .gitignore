@@ -3,6 +3,6 @@
 assets/source/
 
 # Local browser validation output.
+.test-results/
 test-results/
 playwright-report/
-
