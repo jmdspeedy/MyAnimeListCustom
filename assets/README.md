@@ -4,6 +4,8 @@ This directory is served by GitHub Pages and contains only optimized,
 versioned files used by the MAL stylesheet.
 
 - `images/`: Aqours member artwork optimized as WebP.
+- `images/interface-*.png`: versioned showcase captures of the themed
+  MyAnimeList interface used by the project README and landing page.
 - `fonts/`: self-hosted Latin WOFF2 subsets and their OFL license files.
 - `ATTRIBUTION.md`: source URLs, usage notes, copyright, and transformation
   details.
