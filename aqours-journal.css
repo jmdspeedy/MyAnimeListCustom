@@ -1337,6 +1337,13 @@ body.ownlist:not(.classic-ownlist).anime .list-table .data.storage,
 body.ownlist:not(.classic-ownlist).anime .list-table .data.priority,
 body.ownlist:not(.classic-ownlist).anime .list-table .data.notes { bottom: 334px; }
 
+/* Keep the type, rating, and personal-tags rows out of the hover slip. */
+body.ownlist:not(.classic-ownlist).anime .list-table .data.type,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.rated,
+body.ownlist:not(.classic-ownlist).anime .list-table .data.tags {
+  display: none;
+}
+
 body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.type,
 body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.rated,
 body.ownlist:not(.classic-ownlist).anime .list-table > tbody.list-item:hover .data.tags,
