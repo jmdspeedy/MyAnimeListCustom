@@ -78,6 +78,7 @@ body.ownlist:not(.classic-ownlist).anime {
   --asset-hanamaru-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/hanamaru-7th-icon-v1.webp");
   --asset-mari-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/mari-7th-icon-v1.webp");
   --asset-ruby-icon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/ruby-7th-icon-v1.webp");
+  --asset-collectible-ribbon: url("https://jmdspeedy.github.io/MyAnimeListCustom/assets/images/aqours-collectible-ribbon-v1.png");
 
   --color-sky: #bdeaf4;
   --color-ocean: #168fc5;
@@ -266,25 +267,6 @@ body.ownlist:not(.classic-ownlist).anime .header::before {
   animation: aqours-header-wave 12s ease-in-out infinite alternate;
 }
 
-body.ownlist:not(.classic-ownlist).anime .header::after {
-  content: "Aqours · 7th Anniversary";
-  position: absolute;
-  z-index: 2;
-  top: 24px;
-  left: 22px;
-  padding: 8px 12px;
-  border: 2px solid rgba(255, 249, 232, 0.88);
-  border-radius: 5px;
-  background: rgba(255, 249, 232, 0.9);
-  box-shadow: 0 5px 12px rgba(23, 56, 74, 0.22);
-  color: var(--color-ocean-deep);
-  font-family: var(--font-hand);
-  font-size: 13px;
-  font-weight: 600;
-  transform: rotate(-1.5deg);
-  pointer-events: none;
-}
-
 body.ownlist:not(.classic-ownlist).anime .header .header-title {
   position: absolute;
   z-index: 2;
@@ -319,17 +301,6 @@ body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
   font-weight: 600;
   line-height: 1.08;
   text-wrap: balance;
-}
-
-body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
-  content: "Memories by the Sea · jmdspeedy's Anime List";
-  display: block;
-  margin-top: 10px;
-  color: var(--color-ink-muted);
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.3;
 }
 
 body.ownlist:not(.classic-ownlist).anime .header .header-menu {
@@ -476,7 +447,8 @@ body.ownlist:not(.classic-ownlist).anime #status-menu {
   z-index: 20;
   width: 100%;
   height: auto;
-  padding-top: 82px;
+  --collectible-ribbon-height: clamp(84px, 8.3vw, 120px);
+  padding-top: calc(var(--collectible-ribbon-height) + 24px);
   border: 0;
   background: var(--color-paper-deep);
   box-shadow: inset 0 -1px rgba(11, 82, 117, 0.2), 0 3px 8px rgba(23, 56, 74, 0.08);
@@ -486,48 +458,19 @@ body.ownlist:not(.classic-ownlist).anime #status-menu::before {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 10px;
+  top: 12px;
   right: 22px;
   left: 22px;
-  height: 64px;
-  border: 5px solid var(--color-paper);
-  border-radius: 5px;
+  height: var(--collectible-ribbon-height);
+  overflow: hidden;
+  border: 0;
+  border-radius: 9px;
   background-color: var(--color-paper);
-  background-image:
-    var(--asset-chika-icon),
-    var(--asset-riko-icon),
-    var(--asset-kanan-icon),
-    var(--asset-dia-icon),
-    var(--asset-you-icon),
-    var(--asset-yoshiko-icon),
-    var(--asset-hanamaru-icon),
-    var(--asset-mari-icon),
-    var(--asset-ruby-icon),
-    linear-gradient(90deg,
-      var(--member-chika) 0 11.11%,
-      var(--member-riko) 11.11% 22.22%,
-      var(--member-kanan) 22.22% 33.33%,
-      var(--member-dia) 33.33% 44.44%,
-      var(--member-you) 44.44% 55.55%,
-      var(--member-yoshiko) 55.55% 66.66%,
-      var(--member-hanamaru) 66.66% 77.77%,
-      var(--member-mari) 77.77% 88.88%,
-      var(--member-ruby) 88.88% 100%);
-  background-position:
-    0 center,
-    12.5% center,
-    25% center,
-    37.5% center,
-    50% center,
-    62.5% center,
-    75% center,
-    87.5% center,
-    100% center,
-    center;
+  background-image: var(--asset-collectible-ribbon);
+  background-position: center 50%;
   background-repeat: no-repeat;
-  background-size: 56px 56px, 56px 56px, 56px 56px, 56px 56px, 56px 56px,
-    56px 56px, 56px 56px, 56px 56px, 56px 56px, cover;
-  box-shadow: 0 4px 10px rgba(23, 56, 74, 0.16);
+  background-size: 100% auto;
+  box-shadow: 0 6px 14px rgba(23, 56, 74, 0.18);
   pointer-events: none;
 }
 
@@ -563,14 +506,7 @@ body.ownlist:not(.classic-ownlist).anime #status-menu .status-button {
 }
 
 body.ownlist:not(.classic-ownlist).anime #status-menu .status-button::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  bottom: 4px;
-  left: 10px;
-  height: 3px;
-  border-radius: 3px;
-  background: transparent;
+  content: none;
 }
 
 body.ownlist:not(.classic-ownlist).anime #status-menu .status-button:hover,
@@ -584,10 +520,11 @@ body.ownlist:not(.classic-ownlist).anime #status-menu .status-button.on {
   color: var(--color-ink);
   box-shadow: inset 0 3px rgba(11, 82, 117, 0.08);
   transform: translateY(1px);
-}
-
-body.ownlist:not(.classic-ownlist).anime #status-menu .status-button.on::after {
-  background: var(--color-sun);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-sun);
+  text-decoration-thickness: 3px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 8px;
 }
 
 body.ownlist:not(.classic-ownlist).anime #status-menu .search-container {
@@ -678,19 +615,37 @@ body.ownlist:not(.classic-ownlist).anime .list-status-title .stats {
 body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: auto;
   min-height: 32px;
-  padding: 6px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--color-white);
+  min-width: 72px;
+  padding: 7px 12px 8px;
+  border: 1px solid rgba(255, 249, 232, 0.78);
+  border-bottom: 3px solid var(--color-sun);
+  border-radius: 7px 7px 3px 3px;
+  background: var(--color-paper);
+  box-shadow: 0 2px 0 rgba(23, 56, 74, 0.2), inset 0 1px rgba(255, 255, 255, 0.7);
+  color: var(--color-ocean-deep);
   font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
   transition: background-color 160ms ease-out, transform 160ms ease-out;
 }
 
-body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:hover,
+body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:hover {
+  background: var(--color-white);
+  transform: translateY(-1px);
+}
+
+body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:active {
+  transform: translateY(1px);
+}
+
 body.ownlist:not(.classic-ownlist).anime #list-container .list-status-title .stats a:focus-visible {
-  background: rgba(255, 255, 255, 0.22);
+  outline: 0;
+  box-shadow: var(--focus-ring);
   transform: translateY(-1px);
 }
 
@@ -1550,11 +1505,6 @@ body.ownlist:not(.classic-ownlist).anime footer a {
     background-size: cover, 28px 28px, cover, cover;
   }
 
-  body.ownlist:not(.classic-ownlist).anime .header::after {
-    width: 118px;
-    height: 118px;
-  }
-
   body.ownlist:not(.classic-ownlist).anime .header .header-title {
     top: 68px;
     width: min(45%, 330px);
@@ -1604,14 +1554,6 @@ body.ownlist:not(.classic-ownlist).anime footer a {
     margin-top: 8px;
   }
 
-  body.ownlist:not(.classic-ownlist).anime .header::after {
-    left: 14px;
-    bottom: 14px;
-    width: 92px;
-    height: 92px;
-    border-width: 5px;
-  }
-
   body.ownlist:not(.classic-ownlist).anime .header .header-title {
     top: 68px;
     right: 12px;
@@ -1622,11 +1564,6 @@ body.ownlist:not(.classic-ownlist).anime footer a {
 
   body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
     font-size: 19px;
-  }
-
-  body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
-    margin-top: 7px;
-    font-size: 10px;
   }
 
   body.ownlist:not(.classic-ownlist).anime .header .header-menu {
@@ -1798,8 +1735,7 @@ body.ownlist:not(.classic-ownlist).anime footer a {
     font-size: clamp(24px, 4vw, 32px);
   }
 
-  body.ownlist:not(.classic-ownlist).anime .header::before,
-  body.ownlist:not(.classic-ownlist).anime .header::after {
+  body.ownlist:not(.classic-ownlist).anime .header::before {
     display: none;
   }
 
@@ -1878,11 +1814,6 @@ body.ownlist:not(.classic-ownlist).anime footer a {
 
   body.ownlist:not(.classic-ownlist).anime .header .header-title::before {
     font-size: 23px;
-  }
-
-  body.ownlist:not(.classic-ownlist).anime .header .header-title::after {
-    margin-top: 6px;
-    font-size: 10px;
   }
 
   body.ownlist:not(.classic-ownlist).anime .header .header-menu {

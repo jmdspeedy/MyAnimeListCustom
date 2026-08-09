@@ -28,6 +28,9 @@ Published derivatives:
 
 - `assets/images/{member}-7th-icon-v1.webp`: 240×240, WebP quality 84.
 - `assets/images/{member}-7th-wallpaper-v1.webp`: 360×779, WebP quality 82.
+- `assets/images/aqours-collectible-ribbon-v1.png`: generated nine-member UI
+  composite derived from the published icon artwork and displayed as the
+  decorative status-navigation ribbon.
 
 These files remain subject to the original rightsholder's terms. They are not
 released under the repository's code license.
